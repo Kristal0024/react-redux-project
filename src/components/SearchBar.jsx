@@ -8,6 +8,7 @@ const SearchBar = () => {
 
     const submithandler=(e)=>{
         e.preventDefault()
+        console.log("submitted text:",text)
         dispatch(setQuery(text))
         settext('')
     }
@@ -15,14 +16,14 @@ const SearchBar = () => {
     <div>
       <form onSubmit={(e)=>{
         submithandler(e)
-      }} className='bg-gray-900 flex p-10' >
+      }} className='bg-(--c1) flex p-10' >
         <input
         value={text}
         onChange={(e)=>{
             settext(e.target.value)
         }}
         required 
-        className='w-full border-2 px-4 py-2 text-xl rounded outline-none' type="text" placeholder='search anything' />
+        className='w-full border-2 px-4 py-2 text-xl rounded outline-none' type="text" placeholder='search anything....' />
         <button className=' active:scale-95 cursor-pointer border-2 px-4 py-2 text-xl rounded outline-none'>Search</button>
       </form>
     </div>

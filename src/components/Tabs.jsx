@@ -1,5 +1,5 @@
 import React from 'react'
-import { setActiveTabs } from '../redux/features/searchSlice'
+import { setActiveTab } from '../redux/features/searchSlice'
 import {useDispatch} from 'react-redux'
 import { useSelector } from 'react-redux'
 
@@ -12,7 +12,7 @@ function Tabs() {
         {tabs.map(function(elem,idx){
             return <button
             onClick={()=>{
-                dispatch(setActiveTabs(elem))
+                dispatch(setActiveTab(elem))
             }}
             className={`${(activeTab==elem?'bg-blue-700':'bg-gray-500')} transition px-5 py-2 rounded uppercase cursor-pointer active:scale-95`} key={idx}>{elem}</button>
         })}
