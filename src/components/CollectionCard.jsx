@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react'
 import {useDispatch} from 'react-redux'
-import {addCollection, addedToast} from '../redux/features/collectionSlice'
-const ResultCard = ({ item }) => {
-  const dispatch=useDispatch()
-  const addToCollection = (item) => {
-    dispatch(addCollection(item))
-    dispatch(addedToast())
-  }
+import {removeToast, removeCollection} from '../redux/features/collectionSlice'
+const CollectionCard = ({item}) => {
+    const dispatch=useDispatch()
+    const removeFromCollection=(item)=>{
+        dispatch(removeCollection(item.id))
+        dispatch(removeToast())
+    }
   return (
-    <div className="relative w-[18vw] h-80 bg-white text-black border overflow-hidden rounded">
+      <div className="relative w-[18vw] h-80 bg-white text-black border overflow-hidden rounded-xl">
       <a target="_blank" href={item.url}>
         {item.type == "photo" ? 
           <img
@@ -16,14 +16,14 @@ const ResultCard = ({ item }) => {
             src={item.src}
             alt=""
           />
-         : (
+         : 
           ""
-        )}
+        }
         {item.type == "video" ? 
-          <video className="h-full w-full object-cover object-center" autoPlay loop muted src={item.src}></video>
-        : (
+          <video  className="h-full w-full object-cover object-center" autoPlay loop muted src={item.src}></video>
+        : 
           ""
-        )}
+        }
       </a>
       <div
         id="bottom"
@@ -34,15 +34,15 @@ const ResultCard = ({ item }) => {
         </h2>
         <button
           onClick={() => {
-            addToCollection(item);
-          }}
+removeFromCollection(item)
+        }}
           className="active:scale-95 cursor-pointer bg-indigo-600 text-white rounded px-3 py-2 font-medium"
         >
-          Save
+          Remove
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ResultCard;
+export default CollectionCard

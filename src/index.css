@@ -2,3 +2,16 @@
 #bottom{
     background: linear-gradient(transparent,black);
 }
+@font-face {
+    font-family: Helvetica;
+    src: url(./font/HelveticaNeue.otf);
+}
+*{
+    font-family: 'Helvetica';
+}
+:root{
+    --c1:rgb(6, 30, 41);
+    --c2:rgb(29, 84, 109);
+    --c3:rgb(95, 149, 152);
+    --c4:rgb(243, 244, 244);
+}
